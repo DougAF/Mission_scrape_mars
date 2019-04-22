@@ -14,7 +14,7 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017")
 @app.route("/")
 def index():
 #         # Store the entire dict collection in a dict  dict(db.mars_data.find())
-    mars_app_dict = mongo.db.collection.find_one()
+    mars_app_dict = mongo.db.mars_data.find_one()
     print("scrape_mars_dict")
     return render_template('index.html', mars_data_dict= mars_app_dict)
 # #         return current_app.send_static_file('index.html')
@@ -23,7 +23,7 @@ def index():
 @app.route("/scrape")
 def scrape():
     scrape_mars_dict = scrape_mars.scrape()
-    mars_data = mongo.db.mars
+    mars_data = mongo.db.mars_app_dict
     mars_data.update(
         {},
         scrape_mars_dict,
