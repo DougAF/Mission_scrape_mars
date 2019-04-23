@@ -3,33 +3,42 @@ from flask import Flask, current_app, jsonify, render_template, redirect
 
 from flask_pymongo import PyMongo
 
+import pymongo
+
 import scrape_mars
 
 #Flask instance
 app = Flask(__name__)
 # Create connection variable
-mongo = PyMongo(app, uri="mongodb://localhost:27017")
+conn = 'mongodb://localhost:27017'
+
+# Pass connection to the pymongo instance.
+client = pymongo.MongoClient(conn)
+
+mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_data")
+# Connect to a database. Will create one if not already available.
+db = client.mars_data
+
 
 # create index 
 @app.route("/")
 def index():
 #         # Store the entire dict collection in a dict  dict(db.mars_data.find())
-    mars_app_dict = mongo.db.mars_data.find_one()
+    mars = mongo.db.mars_data.find_one()
     print("scrape_mars_dict")
-    return render_template('index.html', mars_data_dict= mars_app_dict)
-# #         return current_app.send_static_file('index.html')
+    return render_template('index.html', mars=mars)
 
 # create scrape 
 @app.route("/scrape")
 def scrape():
     scrape_mars_dict = scrape_mars.scrape()
-    mars_data = mongo.db.mars_app_dict
+    mars_data = db.mars_app_dict
     mars_data.update(
         {},
         scrape_mars_dict,
         upsert=True
     )
-    return redirect("http://localhost:5000/")
+    return redirect("/", code=302)
 
 if __name__ == "__main__":
     app.run(debug=True)
