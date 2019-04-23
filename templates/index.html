@@ -9,28 +9,62 @@
   <title>Scraping Mars Results</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<!-- if use CSS -->
-  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <!-- match formatting to template -->
   <div class="container">
-
+<!-- button/jumbo -->
       <div class="jumbotron text-center">
         <h1>So you want to know some things about mars?</h1>
         <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Yes, Find Facts!</a></p>
       </div>
-  
+  <!-- end of jumbotron -->
+
       <!-- Mars Data -->
-      <div class="row" id="mars-data">
+    <div class="row" id="mars-data-news">
         <div class="col-md-12">
-          <h4 class="heading"></h4>
-          <small></small>
-        </div>
+          <h4 class="heading"> Latest Mars News</h4>
+          <h6><strong>Latest News from Mars</h3></strong>
+            <h6>{{ mars.latest_title}}</h6>
+            <p>{{ mars.latest_paragraph}}</p>
+        </div><!-- end of news section -->
       </div>
-  
-    </div>
+        <div class="row">
+          <div class="col-md-6">
+              <img src="{{ mars.featured_image_url}}" alt="Featured Image" style="max-width: 100%; max-height: auto">
+            </div>
+            <div class="col-md-6">
+                <div class="panel-body">
+                    <h4>Mars Weather</h4>
+                    <p>{{mars.Mars_Weather}}</p>
+            </div>
+          </div>
+         </div> <!--NEW -->
+        <div class="row">
+          <div class="col-md-4" style="height: 100%">
+            <h3>Mars Facts</h3>
+            <div style="height:100%; margin-top:20px;">
+                {{mars.mars_facts|safe}}
+            </div>
+        </div>
+      </div>  
+        <!-- weather info and table -->
+        <div class="row" style="margin-top:20px">
+            <div class="col-12" style="text-align: center">
+                <h3>Mars Hemispheres</h3>
+            </div>
+            <div class="row card-deck">
+                <div class="col-md-6">
+                    <div class="card">
+                        <img>
+                        <div class="card-body">
+                           <p class="card-text" style="text-align: center"></p>
+                        </div>
+                    </div>
+                </div>
+      
+    </div> <!-- end container --> -->
 
 
   <!-- insert BS JS code  -->
@@ -40,3 +74,7 @@
 
 </body>
 </html>
+<!-- featured_image_url,
+        "mars_weather" : mars_weather,
+        "mars_facts" : mars_facts_html,
+        "hemisphere_dictionary" : hemi_dict_list -->
