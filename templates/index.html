@@ -12,19 +12,19 @@
 </head>
 
 <body>
-  <!-- match formatting to template -->
+
   <div class="container">
 <!-- button/jumbo -->
       <div class="jumbotron text-center">
-        <h1>So you want to know some things about mars?</h1>
-        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Yes, Find Facts!</a></p>
+        <h1>Travel to Mars?</h1>
+        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Yes begin data collection.</a></p>
       </div>
   <!-- end of jumbotron -->
 
       <!-- Mars Data -->
     <div class="row" id="mars-data-news">
         <div class="col-md-12">
-          <h4 class="heading"> Latest Mars News</h4>
+          <h4 class="heading"> Mars News</h4>
           <h6><strong>Latest News from Mars</h3></strong>
             <h6>{{ mars.latest_title}}</h6>
             <p>{{ mars.latest_paragraph}}</p>
@@ -37,7 +37,7 @@
             <div class="col-md-6">
                 <div class="panel-body">
                     <h4>Mars Weather</h4>
-                    <p>{{mars.Mars_Weather}}</p>
+                    <p>{{mars.mars_weather}}</p>
             </div>
           </div>
          </div> <!--NEW -->
@@ -49,21 +49,24 @@
             </div>
         </div>
       </div>  
-        <!-- weather info and table -->
+        <!--  -->
         <div class="row" style="margin-top:20px">
             <div class="col-12" style="text-align: center">
-                <h3>Mars Hemispheres</h3>
-            </div>
-            <div class="row card-deck">
+                <h3>Hemispheres</h3>
                 <div class="col-md-6">
-                    <div class="card">
-                        <img>
-                        <div class="card-body">
-                           <p class="card-text" style="text-align: center"></p>
-                        </div>
-                    </div>
-                </div>
-      
+                  <img src="{{mars.hemi_dict_list[0]}}" alt="Cerberus" style="max-width: 100%; max-height: auto">
+                  </div>
+                <div class="col-md-6">
+                    <img src="{{mars.hemi_dict_list[1]}}" alt="Schiaparelli" style="max-width: 100%; max-height: auto">
+                  </div>
+                <div class="col-md-6">
+                    <img src="{{mars.hemi_dict_list[2]}}" alt="Syrtis Major" style="max-width: 100%; max-height: auto">
+                  </div>
+                <div class="col-md-6">
+                    <img src="{{mars.hemi_dict_list[3]}}" alt="Valles Marineris" style="max-width: 100%; max-height: auto">
+                  </div>
+            </div>
+    
     </div> <!-- end container --> -->
 
 
@@ -74,7 +77,34 @@
 
 </body>
 </html>
+
+
+<!-- Notes and ref -->
+<!-- ################################################################################ -->
 <!-- featured_image_url,
         "mars_weather" : mars_weather,
         "mars_facts" : mars_facts_html,
-        "hemisphere_dictionary" : hemi_dict_list -->
+        "hemisphere_dictionary" : hemi_dict_list 
+      
+ <div class="card">
+                        <img>
+                        <div class="card-body">
+                           <p class="card-text" style="text-align: center"></p>
+                        <div class="img" src= hemi_dict_list></div>
+
+      -->
+
+                  <!-- <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="hemi_dict_list[]" alt="Hemispheres">
+                <div class="card-body">
+                  <h5 class="card-title">Hemisphere</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">{{mars.hemi_dict_list[0]}}</li>
+                  <li class="list-group-item">{mars.hemi_dict_list[1]}</li>
+                  <li class="list-group-item">{mars.hemi_dict_list[2]}</li>
+                  <li class="list-group-item">{mars.hemi_dict_list[3]}</li>
+                  <li class="list-group-item"></li>
+
+                </ul>
+               -->
