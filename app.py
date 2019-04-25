@@ -25,14 +25,13 @@ db = client.mars_data
 def index():
 #         # Store the entire dict collection in a dict  dict(db.mars_data.find())
     mars = mongo.db.mars_data.find_one()
-    print("scrape_mars_dict")
     return render_template('index.html', mars=mars)
 
 # create scrape 
 @app.route("/scrape")
 def scrape():
     scrape_mars_dict = scrape_mars.scrape()
-    mars_data = db.mars_app_dict
+    mars_data = db.mars_data
     mars_data.update(
         {},
         scrape_mars_dict,
