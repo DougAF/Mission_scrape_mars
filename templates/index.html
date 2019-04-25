@@ -64,11 +64,16 @@
                   </div>
                 <div class="col-md-6">
                     <img src="{{mars.hemisphere_dictionary[3]}}" alt="Valles Marineris" style="max-width: 100%; max-height: auto">
+                    <ul>
+                      {% for hemi in hemisphere_dictionary %}
+                        <li>{{ hemi.value|e }}</li>
+                      {% endfor %}
+                  </ul>
                   </div>
             </div>
           
     
-    </div> end container
+     </div> <!--end container -->
 
 
   <!-- insert BS JS code  -->
