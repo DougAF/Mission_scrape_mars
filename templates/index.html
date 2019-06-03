@@ -49,25 +49,31 @@
             </div>
         </div>
       </div>  
-        <!--  -->
+         <!-- -->
         <div class="row" style="margin-top:20px">
             <div class="col-12" style="text-align: center">
                 <h3>Hemispheres</h3>
                 <div class="col-md-6">
-                  <img src="{{mars.hemi_dict_list[0]}}" alt="Cerberus" style="max-width: 100%; max-height: auto">
+                  <img src="{{mars.hemisphere_dictionary[0]}}" alt="Cerberus" style="max-width: 100%; max-height: auto">
                   </div>
                 <div class="col-md-6">
-                    <img src="{{mars.hemi_dict_list[1]}}" alt="Schiaparelli" style="max-width: 100%; max-height: auto">
+                    <img src="{{mars.hemisphere_dictionary[1]}}" alt="Schiaparelli" style="max-width: 100%; max-height: auto">
                   </div>
                 <div class="col-md-6">
-                    <img src="{{mars.hemi_dict_list[2]}}" alt="Syrtis Major" style="max-width: 100%; max-height: auto">
+                    <img src="{{mars.hemisphere_dictionary[2]}}" alt="Syrtis Major" style="max-width: 100%; max-height: auto">
                   </div>
                 <div class="col-md-6">
-                    <img src="{{mars.hemi_dict_list[3]}}" alt="Valles Marineris" style="max-width: 100%; max-height: auto">
+                    <img src="{{mars.hemisphere_dictionary[3]}}" alt="Valles Marineris" style="max-width: 100%; max-height: auto">
+                    <ul>
+                      {% for hemi in hemisphere_dictionary %}
+                        <li>{{ hemi.value|e }}</li>
+                      {% endfor %}
+                  </ul>
                   </div>
             </div>
+          
     
-    </div> <!-- end container --> -->
+     </div> <!--end container -->
 
 
   <!-- insert BS JS code  -->
@@ -79,32 +85,5 @@
 </html>
 
 
-<!-- Notes and ref -->
-<!-- ################################################################################ -->
-<!-- featured_image_url,
-        "mars_weather" : mars_weather,
-        "mars_facts" : mars_facts_html,
-        "hemisphere_dictionary" : hemi_dict_list 
-      
- <div class="card">
-                        <img>
-                        <div class="card-body">
-                           <p class="card-text" style="text-align: center"></p>
-                        <div class="img" src= hemi_dict_list></div>
 
-      -->
-
-                  <!-- <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="hemi_dict_list[]" alt="Hemispheres">
-                <div class="card-body">
-                  <h5 class="card-title">Hemisphere</h5>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">{{mars.hemi_dict_list[0]}}</li>
-                  <li class="list-group-item">{mars.hemi_dict_list[1]}</li>
-                  <li class="list-group-item">{mars.hemi_dict_list[2]}</li>
-                  <li class="list-group-item">{mars.hemi_dict_list[3]}</li>
-                  <li class="list-group-item"></li>
-
-                </ul>
-               -->
+  
