@@ -1,7 +1,7 @@
 beautifulsoup4==4.6.3
 Flask==1.0.2
 Flask-Cors==3.0.7
-Jinja2==2.10
+Jinja2==2.11.3
 jupyter==1.0.0
 jupyter-client==5.2.4
 jupyter-console==6.0.0
